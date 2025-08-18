@@ -6,10 +6,12 @@ bangEntries.sort((a, b) => a.key.localeCompare(b.key));
 const keyToBang = new Map(bangs.map((b, _) => [b.t, b]));
 
 function lowerBound(arr, target) {
+    console.log("lowerBound(arr, target)", arr, target);
     let lo = 0;
     let hi = arr.length;
     while (lo < hi) {
         const mid = (lo + hi) >>> 1;
+        // console.log(`lo ${lo}, hi ${hi}, mid ${mid}`);
         if (arr[mid].key < target) {
             lo = mid + 1;
         } else {
@@ -23,6 +25,10 @@ function rangeByPrefix(prefix) {
     const lo = lowerBound(bangEntries, prefix);
     const hi = lowerBound(bangEntries, prefix + '\uffff');
     return bangEntries.slice(lo, Math.min(hi, lo + 10));
+}
+
+function parseBangFromText(text) {
+    return text.split(' ')[0];
 }
 
 // On enter we should parse the first word as a bang and the rest as a query.
@@ -71,15 +77,12 @@ chrome.omnibox.onInputChanged.addListener(function(text, suggest) {
     
     const suggestions = rangeByPrefix(text).map((entry) => {
         return {
-            content: bangs[entry.i].t,
+            content: `${bangs[entry.i].t} `,
             description: `${bangs[entry.i].s} (${bangs[entry.i].t})`,
             deletable: true
         }
     });
+    console.log("suggestions", suggestions);
     suggest(suggestions);
     return;
 });
-
-function parseBangFromText(text) {
-    return text.split(' ')[0];
-}
