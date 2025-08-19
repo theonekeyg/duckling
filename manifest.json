@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Duckling",
-  "description": "Use duckduckgo bangsearch without hustle and network delay.",
+  "description": "Instant DuckDuckGo bangs in your search bar. Local suggestions, no network requests - just type '! <bang> <query>'.",
   "version": "0.0.1",
   "icons": {
     "16": "images/icon-16.png",
