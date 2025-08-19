@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Duckling",
   "description": "Instant DuckDuckGo bangs in your search bar. Local suggestions, no network requests - just type '! <bang> <query>'.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "icons": {
     "16": "images/icon-16.png",
     "32": "images/icon-32.png",
