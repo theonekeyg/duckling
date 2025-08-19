@@ -40,7 +40,7 @@ chrome.omnibox.onInputEntered.addListener((text) => {
     const bang = keyToBang.get(bangKey);
     if (bang) {
         const query = text.slice(bangKey.length);
-        chrome.tabs.create({ url: bang.u.replace('{{{s}}}', query) });
+        chrome.tabs.update({ url: bang.u.replace('{{{s}}}', query) });
     }
     return;
 });
