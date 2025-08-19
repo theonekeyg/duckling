@@ -1,9 +1,10 @@
 console.log("executing omnibox.js");
 import { bangs } from './bangs.js';
 
-const bangEntries = bangs.map((b, i) => ({ key: b.t, i}));
+const bangEntries = bangs.map((b, i) => ({ key: b.t, i }));
 bangEntries.sort((a, b) => a.key.localeCompare(b.key));
 const keyToBang = new Map(bangs.map((b, _) => [b.t, b]));
+const MAX_SUGGESTIONS = 100;
 
 function lowerBound(arr, target) {
     console.log("lowerBound(arr, target)", arr, target);
@@ -24,11 +25,31 @@ function lowerBound(arr, target) {
 function rangeByPrefix(prefix) {
     const lo = lowerBound(bangEntries, prefix);
     const hi = lowerBound(bangEntries, prefix + '\uffff');
-    return bangEntries.slice(lo, Math.min(hi, lo + 10));
+    return bangEntries.slice(lo, Math.min(hi, lo + MAX_SUGGESTIONS));
 }
 
 function parseBangFromText(text) {
     return text.split(' ')[0];
+}
+
+// This function post-processes the text to be used in the omnibox, it escapes XML characters.
+// Specifically we need to escape the following characters:
+// `"` -> &quot;
+// `'` -> &apos;
+// `<` -> &lt;
+// `>` -> &gt;
+// `&` -> &amp;
+//
+// More info at https://stackoverflow.com/questions/1091945/what-characters-do-i-need-to-escape-in-xml-documents/1091953.
+const ESC_XML_MAP = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&apos;",
+  };
+function escapeOmniboxText(text) {
+    return text.replace(/[&<>"']/g, c => ESC_XML_MAP[c]);
 }
 
 // On enter we should parse the first word as a bang and the rest as a query.
@@ -60,29 +81,38 @@ chrome.omnibox.onInputChanged.addListener(function(text, suggest) {
             console.log("bang", bang);
             suggest([{
                 content: " ", // Empty content breaks chrome API, so use space when it's not needed
-                description: `Selected: ${bang.s} (${bang.t})`,
-                deletable: true
+                description: `Selected: <match>${escapeOmniboxText(bang.s)}</match> <dim>(${bang.t})</dim>`,
             }]);
             return;
         } else {
             // If first word is not a valid bang, indicate an error to user
             suggest([{
                 content: " ",
-                description: `"${bangKey}" is not a valid bang`,
-                deletable: true
+                description: `❌ "${escapeOmniboxText(bangKey)}" <match>is not a valid bang</match>`,
             }])
             return;
         }
     }
-    
+
     const suggestions = rangeByPrefix(text).map((entry) => {
         return {
             content: `${bangs[entry.i].t} `,
-            description: `${bangs[entry.i].s} (${bangs[entry.i].t})`,
+            description: `<match>${escapeOmniboxText(bangs[entry.i].s)}</match> <dim>(${bangs[entry.i].t})</dim>`,
             deletable: true
         }
     });
     console.log("suggestions", suggestions);
+
+    // If there are no suggestions, this means user already wrote incorrect bang,
+    // inform them with special suggestion
+    if (suggestions.length == 0) {
+        suggest([{
+            content: " ",
+            description: `❌ "${escapeOmniboxText(text)}" <match>is not a valid bang</match>`,
+        }]);
+        return
+    }
+
     suggest(suggestions);
     return;
 });
