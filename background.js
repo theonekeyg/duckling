@@ -7,12 +7,10 @@ const keyToBang = new Map(bangs.map((b, _) => [b.t, b]));
 const MAX_SUGGESTIONS = 100;
 
 function lowerBound(arr, target) {
-    console.log("lowerBound(arr, target)", arr, target);
     let lo = 0;
     let hi = arr.length;
     while (lo < hi) {
         const mid = (lo + hi) >>> 1;
-        // console.log(`lo ${lo}, hi ${hi}, mid ${mid}`);
         if (arr[mid].key < target) {
             lo = mid + 1;
         } else {
@@ -78,7 +76,6 @@ chrome.omnibox.onInputChanged.addListener(function(text, suggest) {
         const bangKey = parseBangFromText(text);
         const bang = keyToBang.get(bangKey);
         if (bang) {
-            console.log("bang", bang);
             suggest([{
                 content: " ", // Empty content breaks chrome API, so use space when it's not needed
                 description: `Selected: <match>${escapeOmniboxText(bang.s)}</match> <dim>(${bang.t})</dim>`,
@@ -101,7 +98,6 @@ chrome.omnibox.onInputChanged.addListener(function(text, suggest) {
             deletable: true
         }
     });
-    console.log("suggestions", suggestions);
 
     // If there are no suggestions, this means user already wrote incorrect bang,
     // inform them with special suggestion
