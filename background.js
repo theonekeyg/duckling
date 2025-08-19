@@ -58,8 +58,12 @@ chrome.omnibox.onInputEntered.addListener((text) => {
     const bangKey = parseBangFromText(text);
     const bang = keyToBang.get(bangKey);
     if (bang) {
-        const query = text.slice(bangKey.length);
-        chrome.tabs.update({ url: bang.u.replace('{{{s}}}', query) });
+        const query = text.slice(bangKey.length).trim();
+        console.log(`redirecting to query: "${query}"`);
+        chrome.tabs.update({
+            url: bang.u.replace('{{{s}}}', encodeURIComponent(query)),
+            highlighted: false,
+        });
     }
     return;
 });
