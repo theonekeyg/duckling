@@ -1,4 +1,3 @@
-console.log("executing omnibox.js");
 import { bangs } from './bangs.js';
 
 const bangEntries = bangs.map((b, i) => ({ key: b.t, i }));

@@ -15,7 +15,7 @@
 
 ## Load unpacked extension from source
 
-1. Open Chrome extensions page (chrome://extensions/).
+1. Open Chrome extensions page ([chrome://extensions](chrome://extensions)).
 2. Enable "Developer mode" in top right.
 3. Click on "Load unpacked" in the top left and select the directory of the cloned repo.
 
