@@ -1,7 +1,7 @@
 <div align="center">
-## Duckling
 
-This extension brings native DuckDuckGo bangs in your browser's search bar.
+<h1>Duckling Browser Extension</h1>
+<h2>Bring native DuckDuckGo bangs into your browser search bar.</h2>
 
 </div>
 
