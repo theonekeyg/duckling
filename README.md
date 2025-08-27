@@ -1,13 +1,29 @@
 <div align="center">
 
 <h1>Duckling Browser Extension</h1>
-<h2>Bring native DuckDuckGo bangs into your browser search bar.</h2>
+<h3>Bring native DuckDuckGo bangs into your browser search bar.</h3>
 
 </div>
 
+# Installation
+
+## From Chrome Web Store
+
+1. Go to [Chrome extensions page](https://chromewebstore.google.com/detail/duckling/kkhpjkabnebjkdpcpagdpcchpcdjnonp).
+2. Click on "Add to Chrome".
+3. Enable the extension.
+
+## Load unpacked extension from source
+
+1. Open Chrome extensions page (chrome://extensions/).
+2. Enable "Developer mode" in top right.
+3. Click on "Load unpacked" in the top left and select the directory of the cloned repo.
+
 # Usage
 
-After installing and enabling the extension, type `! <bang> <query>` in your browser's search bar and press enter. The extension will take you to your destination.
+1. In the search bar, type "! " (exclamation mark, then space)
+2. Start typing a bang (e.g. gh, so, npm, wiki) and pick from live suggestions.
+3. Add your query and press Enter to jump directly to target site.
 
 # Key Benefits
 
