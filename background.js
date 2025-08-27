@@ -81,7 +81,7 @@ chrome.omnibox.onInputChanged.addListener(function(text, suggest) {
         if (bang) {
             suggest([{
                 content: " ", // Empty content breaks chrome API, so use space when it's not needed
-                description: `Selected: <match>${escapeOmniboxText(bang.s)}</match> <dim>(${bang.t})</dim>`,
+                description: `Selected: <match>${escapeOmniboxText(bang.s)}</match> <dim>(${escapeOmniboxText(bang.t)})</dim>`,
             }]);
             return;
         } else {
@@ -97,7 +97,7 @@ chrome.omnibox.onInputChanged.addListener(function(text, suggest) {
     const suggestions = rangeByPrefix(text).map((entry) => {
         return {
             content: `${bangs[entry.i].t} `,
-            description: `<match>${escapeOmniboxText(bangs[entry.i].s)}</match> <dim>(${bangs[entry.i].t})</dim>`,
+            description: `<match>${escapeOmniboxText(bangs[entry.i].s)}</match> <dim>(${escapeOmniboxText(bangs[entry.i].t)})</dim>`,
             deletable: true
         }
     });
