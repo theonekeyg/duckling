@@ -1,5 +1,5 @@
 <div align="center">
-# Duckling
+## Duckling
 
 This extension brings native DuckDuckGo bangs in your browser's search bar.
 
