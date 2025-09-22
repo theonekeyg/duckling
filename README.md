@@ -3,7 +3,7 @@
 <h1>Duckling Browser Extension</h1>
 <h3>Bring native DuckDuckGo bangs into your browser search bar</h3>
 
-<img src="_assets/Duckling.gif">
+<img src="_assets/Duckling.gif" alt="Duckling usage example">
 
 </div>
 
