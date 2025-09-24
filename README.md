@@ -7,6 +7,20 @@
 
 </div>
 
+# Usage
+
+1. In the search bar, type "! " (exclamation mark, then space).
+2. Start typing a bang (e.g. gh, so, npm, wiki) and pick from live suggestions.
+3. Add your query and press Enter to jump directly to target site.
+
+# Key Benefits
+
+* ⚡ **Instant**: no network requests, DNS hops, or redirects. Suggestions and query resolution happen locally inside the extension. You'll notice the difference!
+* 🧠 **Don't memorize bangs**: type-ahead suggestions surface the right bang as you type.
+* 🧩 **Default search engine choice**: use whatever default search engine you like alongside Duckling. Use DuckDuckGo's best feature - no DuckDuckGo required.
+* 🔒 **Privacy-first**: no telemetry, no request tracking - your data stays with you.
+* ❤️ **Open source**: Transparent, auditable and only does what it's supposed to. Review the code, open issues and contribute.
+
 # Installation
 
 ## Via Chrome Web Store
@@ -32,17 +46,3 @@ pnpm build
 4. Open Chrome extension page (chrome://extensions).
 5. Enable "Developer mode" in top right.
 6. Click on "Load unpacked" in the top left and select the directory `.output/chrome-mv3`.
-
-# Usage
-
-1. In the search bar, type "! " (exclamation mark, then space).
-2. Start typing a bang (e.g. gh, so, npm, wiki) and pick from live suggestions.
-3. Add your query and press Enter to jump directly to target site.
-
-# Key Benefits
-
-* **Instant**: No network delay while you type. Suggestions and query resolution happen locally.
-* **No DNS lookups during query composition**: the browser doesn't touch the network until you press Enter.
-* **Don't memorize bangs**: type-ahead suggestions surface the right bang as you type.
-* **Fully local resolution**: the final URL is built inside the extension - no extra hops or redirects.
-* **Privacy-first**: no telemetry, no background requests - only the final navigation is performed.
