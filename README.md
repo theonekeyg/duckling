@@ -1,6 +1,9 @@
 <div align="center">
 
-<h1>Duckling Browser Extension</h1>
+<div style="flex">
+  <img src=_assets/icon-128.png>
+  <h1>Duckling Browser Extension</h1>
+</div>
 <h3>Bring native DuckDuckGo bangs into your browser search bar</h3>
 
 <img src="_assets/Duckling.gif" alt="Duckling usage example">
