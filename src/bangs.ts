@@ -122063,3 +122063,4 @@ export const bangs = [
     u: "http://astronet.ge/?s={{{s}}}",
   },
 ];
+
