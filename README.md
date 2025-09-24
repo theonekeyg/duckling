@@ -20,7 +20,7 @@
 * ⚡ **Instant**: no network requests, DNS hops, or redirects. Suggestions and query resolution happen locally inside the extension. You'll notice the difference!
 * 🧠 **Don't memorize bangs**: type-ahead suggestions surface the right bang as you type.
 * 🧩 **Default search engine choice**: use whatever default search engine you like alongside Duckling. Use DuckDuckGo's best feature - no DuckDuckGo required.
-* 🔒 **Privacy-first**: no telemetry, no request tracking - your data stays with you.
+* 🔒 **Privacy-first**: no telemetry, no request tracking - your data stays on your device.
 * ❤️ **Open source**: Transparent, auditable and only does what it's supposed to. Review the code, open issues and contribute.
 
 # Installation
