@@ -15,12 +15,20 @@
 2. Click on "Add to Chrome".
 3. Enable the extension.
 
-<!-- ## Load unpacked extension from source -->
 ## Build and install extension from source
 
-1. Clone the repository - `git clone git@github.com:theonekeyg/duckling.git`.
-2. Install dependencies - `pnpm install`.
-3. Build the extension bundle - `pnpm build`.
+1. Clone the repository
+```bash
+git clone git@github.com:theonekeyg/duckling.git
+```
+2. Install dependencies
+```bash
+pnpm install
+```
+3. Build the extension bundle
+```
+pnpm build
+```
 4. Open Chrome extension page (chrome://extensions).
 5. Enable "Developer mode" in top right.
 6. Click on "Load unpacked" in the top left and select the directory `.output/chrome-mv3`.
