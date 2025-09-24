@@ -93,7 +93,6 @@ export function initOmnibox(fmtCallbacks: FormatCallbacks) {
                 suggest([{
                     content: " ", // Empty content breaks chrome API, so use space when it's not needed
                     description: fmtCallbacks.SelectedMatch(escapeOmniboxText(bang.s), escapeOmniboxText(bang.t)),
-                    // description: `Selected: <match>${escapeOmniboxText(bang.s)}</match> <dim>(${escapeOmniboxText(bang.t)})</dim>`,
                 }]);
                 return;
             } else {
@@ -101,7 +100,6 @@ export function initOmnibox(fmtCallbacks: FormatCallbacks) {
                 suggest([{
                     content: " ",
                     description: fmtCallbacks.IsNotValidBang(escapeOmniboxText(bangKey)),
-                    // description: `❌ "${escapeOmniboxText(bangKey)}" <match>is not a valid bang</match>`,
                 }])
                 return;
             }
@@ -111,7 +109,6 @@ export function initOmnibox(fmtCallbacks: FormatCallbacks) {
             return {
                 content: `${bangs[entry.i].t} `,
                 description: fmtCallbacks.Suggestion(escapeOmniboxText(bangs[entry.i].s), escapeOmniboxText(bangs[entry.i].t)),
-                // description: `<match>${escapeOmniboxText(bangs[entry.i].s)}</match> <dim>(${escapeOmniboxText(bangs[entry.i].t)})</dim>`,
                 deletable: true
             }
         });
@@ -122,7 +119,6 @@ export function initOmnibox(fmtCallbacks: FormatCallbacks) {
             suggest([{
                 content: " ",
                 description: fmtCallbacks.IsNotValidBang(escapeOmniboxText(text)),
-                // description: `❌ "${escapeOmniboxText(text)}" <match>is not a valid bang</match>`,
             }]);
             return
         }

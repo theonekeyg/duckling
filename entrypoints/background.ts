@@ -1,9 +1,13 @@
 import { initOmnibox, FormatCallbacks } from "../src";
 
+// Different browsers support different formatting features, for instance,
+// Chrome supports HTML tags in omnibox suggestions, while Firefox doesn't.
+// To provide the best experience, we use different formatting callbacks for different browsers. 
+let formatCallbacks: FormatCallbacks;
+
 // Select format callbacks during build time, so there's only browser-specific code
 // at runtime. The actual code picking for final bundle is handled by wxt.
 // P.S. These envs are available at both build and runtime, I checked it, I promise.
-let formatCallbacks: FormatCallbacks;
 if (import.meta.env.FIREFOX) {
     formatCallbacks = {
         SelectedMatch: firefoxSelectedMatch,
