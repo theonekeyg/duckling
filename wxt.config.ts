@@ -15,6 +15,13 @@ export default defineConfig({
     },
     vite: () => ({
         build: {
+            // Minification is disabled to make review process by distributions easier.
+            // Note from google (https://developer.chrome.com/docs/webstore/review-process#review-time-factors):
+            // '''
+            // Minification is allowed, but it can also make reviewing extension code more difficult.
+            // Where possible, consider submitting your code as authored.
+            // '''
+            // NOTE: Could be enabled it in the future, once reviews are more streamlined and faster.
             minify: false,
         }
     }),
