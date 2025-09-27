@@ -25,10 +25,16 @@
 
 # Installation
 
-## Via Chrome Web Store
+## Chrome Web Store
 
 1. Go to Duckling [Chrome extension page](https://chromewebstore.google.com/detail/duckling/kkhpjkabnebjkdpcpagdpcchpcdjnonp).
 2. Click on "Add to Chrome".
+3. Enable the extension.
+
+## Firefox Add-on
+
+1. Go to Duckling [Firefox Add-on page](https://addons.mozilla.org/ru/firefox/addon/duckling).
+2. Click on "Add to Firefox".
 3. Enable the extension.
 
 ## Build and install extension from source
