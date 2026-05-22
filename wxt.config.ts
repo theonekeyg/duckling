@@ -6,7 +6,7 @@ export default defineConfig({
         return {
             name: "Duckling",
             description: "Instant DuckDuckGo bangs in your search bar. Local suggestions, no network requests - just type '! <bang> <query>'.",
-            version: "0.0.4",
+            version: "0.0.5",
             minimum_chrome_version: "102",
             omnibox: {
                 keyword: "!",
