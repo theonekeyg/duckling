@@ -72,7 +72,6 @@ export function initOmnibox(fmtCallbacks: FormatCallbacks) {
             console.log(`redirecting to query: "${query}"`);
             chrome.tabs.update({
                 url: bang.u.replace('{{{s}}}', encodeURIComponent(query)),
-                highlighted: false,
             });
         }
         return;
